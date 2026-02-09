@@ -1,0 +1,16 @@
+{
+    "argv": [
+        "python", "{handler_path}",
+        "sciunit",
+        "exec",
+        "python",
+        "{nbrewind_path}",
+        "-f",
+        "{connection_file}"
+    ],
+    "display_name": "NBrewind Audit Kernel",
+    "language": "python",
+    "metadata": {
+        "debugger": true
+    }
+}

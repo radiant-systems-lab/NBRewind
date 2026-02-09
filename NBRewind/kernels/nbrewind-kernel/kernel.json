@@ -1,0 +1,14 @@
+{
+    "argv": [
+        "python",
+        "{nbrewind_path}",
+        "-f",
+        "{connection_file}"
+    ],
+    "display_name": "NBrewind",
+    "language": "python",
+    "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+    }
+}
