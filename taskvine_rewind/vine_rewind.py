@@ -319,7 +319,7 @@ class RewindManager(vine.Manager):
     - Support for cached task results
     """
 
-    def __init__(self, name=None, ports=9123, ssl=False, log_file="rewind.txlog"):
+    def __init__(self, port=9123, name=None, ssl=False, log_file="rewind.txlog"):
         """
         Create a new RewindManager.
 
@@ -330,7 +330,7 @@ class RewindManager(vine.Manager):
             log_file: Path to transaction log file (default: rewind.txlog)
         """
         # Initialize parent Manager FIRST
-        super().__init__(name=name, port=ports, ssl=ssl)
+        super().__init__(port=port, name=name, ssl=ssl)
 
         # Transaction log for persistence
         self._log = TransactionLog(log_file)
