@@ -78,6 +78,25 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Mac metadata
+.DS_Store
+
+# TaskVine runtime directories
+vine-run-info/
+vine-outputs/
+
+# TaskVine generated files
+*.output
+*.txlog
+*.transactions
+*.taskgraph
+*.performance
+*.py_wrapper_*
+
+# Pickle / checkpoint files
+*.pkl
+*.p
+
 # IPython
 profile_default/
 ipython_config.py
