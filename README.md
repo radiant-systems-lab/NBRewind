@@ -16,7 +16,15 @@ conda env create -f AE.yml --name ccgrid
 conda activate ccgrid
 ```
 
-### 2. Install the NBRewind kernel
+### 2. Install taskvine_rewind
+
+From the root of this repository:
+
+```bash
+pip install -e .
+```
+
+### 3. Install the NBRewind kernel
 
 ```bash
 cd NBRewind
@@ -27,39 +35,41 @@ This registers two Jupyter kernels:
 - **NBRewind** — checkpoint/restore kernel
 - **NBrewind Audit Kernel** — provenance-tracking kernel (via sciunit)
 
-### 3. Install taskvine_rewind
-
-```bash
-pip install -e .
-```
-
 ---
 
 ## Running an Experiment
 
-Each experiment is in a subdirectory under `dataset/`:
+Each experiment is in a subdirectory under `dataset/`. Start Jupyter, open the notebook in the `workflow/` directory, select the **NBRewind** kernel (Kernel → Change Kernel → NBRewind), launch the TaskVine worker in a separate terminal, then run the notebook **top to bottom**.
 
-| Experiment | Directory |
-|---|---|
-| Climate Trend Analysis | `dataset/climate_trend/` |
-| CMS Physics (dv5) | `dataset/cms-physics-dv5/` |
-| Dask-TaskVine MapReduce | `dataset/dask-taskvine-mapreduce-benchmark/` |
-| Distributed Image Convolution | `dataset/distributed_image_convolution/` |
-| Montage | `dataset/montage/` |
-| RAG Lite BM25 | `dataset/rag-lite-bm25/` |
+### Climate Trend Analysis — `dataset/climate_trend/`
 
-### Steps
+```bash
+vine_worker -M ctrend
+```
 
-1. Start Jupyter:
-   ```bash
-   jupyter notebook
-   ```
+### CMS Physics (dv5) — `dataset/cms-physics-dv5/`
 
-2. Navigate to the `workflow/` directory of the experiment and open the notebook.
+```bash
+vine_worker -M cms-dv5
+```
 
-3. Select the **NBRewind** kernel from the kernel list (Kernel → Change Kernel → NBRewind).
+### Dask-TaskVine MapReduce Benchmark — `dataset/dask-taskvine-mapreduce-benchmark/`
 
-4. Run the notebook **top to bottom**.
+```bash
+vine_worker -M dask-taskvine-mapreduce-manager
+```
+
+### Distributed Image Convolution — `dataset/distributed_image_convolution/`
+
+```bash
+vine_worker -M dconv
+```
+
+### RAG Lite BM25 — `dataset/rag-lite-bm25/`
+
+```bash
+vine_worker -M rag-lite
+```
 
 ---
 
@@ -92,7 +102,7 @@ In repeat mode, NBRewind replays previously checkpointed results without re-exec
 To reset and perform a fresh audit, remove all checkpoint and cache files from the notebook's working directory:
 
 ```bash
-rm -f *.pkl metadata.db rewind.txlog
+rm -rf *.pkl metadata.db rewind.txlog vine_outputs/
 ```
 
 Then re-run the notebook top to bottom with `%audit on`.
@@ -103,7 +113,3 @@ Then re-run the notebook top to bottom with `%audit on`.
 
 - Linux or macOS
 - Conda (Miniconda or Anaconda)
-- TaskVine workers (for distributed experiments) — launch with:
-  ```bash
-  vine_worker <manager-host> <port>
-  ```
