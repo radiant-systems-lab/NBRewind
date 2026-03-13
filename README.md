@@ -1,6 +1,6 @@
-# NBRewind — Artifact Evaluation
+# NBReplay — Artifact Evaluation
 
-NBRewind is a checkpoint/restore system for Jupyter notebooks that enables auditing and repeating notebook executions. It consists of two components:
+NBReplay is a checkpoint/restore system for Jupyter notebooks that enables auditing and repeating notebook executions. It consists of two components:
 
 - **NBRewind kernel** — a custom Jupyter kernel that tracks cell execution and supports checkpoint/restore
 - **taskvine_rewind** — task-level caching for distributed TaskVine/DaskVine workflows
