@@ -41,6 +41,12 @@ This registers two Jupyter kernels:
 
 Each experiment is in a subdirectory under `dataset/`. Start Jupyter, open the notebook in the `workflow/` directory, select the **NBRewind** kernel (Kernel → Change Kernel → NBRewind), launch the TaskVine worker in a separate terminal, then run the notebook **top to bottom**.
 
+> **Note for distributed clusters:** If workers are running on remote machines, ensure that port **9123** is reachable from the worker nodes to the manager host. You can verify connectivity with:
+> ```bash
+> nc -zv <manager-host> 9123
+> ```
+> On AWS EC2, open port 9123 in the instance's security group inbound rules.
+
 ### Climate Trend Analysis — `dataset/climate_trend/`
 
 ```bash
