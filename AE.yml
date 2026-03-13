@@ -1,0 +1,46 @@
+name: ccgrid-ae
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - ndcctools
+  - cloudpickle
+  # dask: capped at <2024.5.2 for coffea (cms-physics) compatibility
+  - dask<2024.5.2
+  - dask-awkward<2024.5.0
+  - dask-core<2024.5.0
+  - dask-histogram<2024.5.0
+  - distributed<2024.5.2
+  - fsspec
+  - aiohttp
+  # coffea (cms-physics)
+  - coffea<2024.4.2
+  # scientific stack
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  # image / vision
+  - pillow
+  # utilities
+  - pytz
+  - psutil
+  - rich
+  - tqdm
+  - dill
+  - graphviz
+  # rag-lite-bm25
+  - langchain=1.0.3
+  - langchain-community=0.3.31
+  - langchain-text-splitters=0.3.11
+  - rank-bm25=0.2.2
+  # jupyter
+  - jupyterlab
+  - ipykernel
+  - pip
+  - pip:
+    - ipyflow==0.0.217
+    - ipyflow-core==0.0.217
+    - parsl>=2024.1.8
+    - fastjet<3.4.2.2
