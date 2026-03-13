@@ -24,6 +24,7 @@ dependencies:
   # image / vision
   - pillow
   # utilities
+  - pytz
   - psutil
   - rich
   - tqdm
