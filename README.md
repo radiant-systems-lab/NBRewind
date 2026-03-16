@@ -1,11 +1,18 @@
-# NBReplay — Artifact Evaluation
+# NBReplay: Efficiently Reproducing Distributed Workflows in Notebook-based Systems 
 
-NBReplay is a checkpoint/restore system for Jupyter notebooks that enables auditing and repeating notebook executions. It consists of two components:
+This repository contains the code and dataset for artifact evaluation of NBReplay, as published in the proceedings of The IEEE International Symposium on Cluster, Cloud, and Internet Computing (CCGrid) 2026.
+
+NBReplay is an end-to-end system for efficient, reproducible execution of distributed workflows in notebooks. It includes a checkpoint/restore system for Jupyter notebooks that enables auditing and repeating notebook executions. It consists of two components:
 
 - **NBRewind kernel** — a custom Jupyter kernel that tracks cell execution and supports checkpoint/restore
 - **taskvine_rewind** — task-level caching for distributed TaskVine/DaskVine workflows
 
 ---
+
+## Requirements
+
+- Linux
+- Conda (Miniconda or Anaconda)
 
 ## Setup
 
@@ -115,7 +122,14 @@ Then re-run the notebook top to bottom with `%audit on`.
 
 ---
 
-## Requirements
+## Citation
+For citing our work, use the following:
+```
+@InProceedings{Azaz_2026_CCGrid,
+    author    = {Azaz, Talha and Ahmad, Raza and Islam, Md Saiful and Thain, Douglas and Malik, Tanu},
+    title     = {Efficiently Reproducing Distributed Workflows in Notebook-based Systems},
+    booktitle = {Proceedings of the IEEE International Symposium on Cluster, Cloud, and Internet Computing (CCGrid), 2026},
+    year      = {2026}
+}
+```
 
-- Linux or macOS
-- Conda (Miniconda or Anaconda)
